@@ -1,0 +1,51 @@
+Content-Type: multipart/mixed; boundary="//"
+MIME-Version: 1.0
+
+--//
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="cloud-config.txt"
+
+#cloud-config
+cloud_final_modules:
+- [scripts-user, always]
+
+--//
+Content-Type: text/x-shellscript; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="userdata.txt"
+
+#! /bin/bash -x
+
+# Backup fstab
+cp /etc/fstab /etc/fstab.backup
+
+# Mount all ephemeral disks
+i=0
+for disk_id in /dev/disk/by-id/nvme-Amazon_EC2_NVMe_Instance_Storage_*
+do
+    mkfs.xfs ${disk_id}
+    mkdir -p /mnt${i}
+    echo "${disk_id} /mnt${i} xfs defaults,noatime 1 2" >> /etc/fstab
+    i=$((${i} + 1))
+done
+
+mount -a
+
+# Mount docker 
+if [ -d "/var/lib/docker" ]
+then
+    service docker stop
+    mkdir /mnt0/docker
+    echo "/mnt0/docker /var/lib/docker none bind 0 0" >> /etc/fstab
+    mount -a
+    service docker restart
+fi
+
+# Rollback fstab
+rm /etc/fstab
+mv /etc/fstab.backup /etc/fstab
+
+--//

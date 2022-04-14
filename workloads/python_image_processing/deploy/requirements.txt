@@ -1,0 +1,2 @@
+Pillow --global-option="build_ext" --global-option="--disable-jpeg"
+couchdb

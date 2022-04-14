@@ -1,0 +1,17 @@
+{
+	"README": "See ./deploy/README.md for help!",
+
+	"functionName": "gd",
+	
+	"lambdaRoleARN": "arn:aws:iam::aws:policy/AWSLambdaFullAccess",
+	"lambdaSubnets": "",
+	"lambdaSecurityGroups": "",
+	"lambdaEnvironment": "Variables={EXAMPLEVAR1=VAL1,EXAMPLEVAR2=VAL2}",
+
+	"ibmHandler": "main_gd",
+	"virtualenvPath": "virtualenv",
+
+	"test": {
+		"name": "Hanfei"
+	}
+}

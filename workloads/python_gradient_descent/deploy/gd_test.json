@@ -1,0 +1,9 @@
+{
+    "threads": 2,
+    "calcs": 200000,
+    "sleep": 0,
+    "loops": 2,
+    "arraySize": 100000,
+
+    "name": "Hanfei"
+}
