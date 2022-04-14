@@ -71,14 +71,14 @@ The steps of deploying a distributed Libra are basically the same as deploying a
 
 ### Prerequisite
 - [AWS EC2](https://aws.amazon.com/ec2/): Instance type must be **c4.2xlarge** with at least **30 GB EBS storage under root volume**
-- [AWS EC2 AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html): **ami-029168b36fec9cc78**
+- [AWS EC2 AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html): **ami-0b5c53c5c909b8b6a**
 
 ### Run Demo
 Since this AMI has preinstalled all dependencies and built all Docker images, you can directly launch the demo once your EC2 instance is up.
 
 **Instruction**
 
-1. Launch a c4.2xlarge instance with 30 GB EBS storage under root volume using AMI **ami-029168b36fec9cc78**. Our AMI can be found by searching the AMI ID: **EC2 Management Console** -> **Images/AMIs** -> **Public Images** -> **Search**.
+1. Launch a c4.2xlarge instance with 30 GB EBS storage under root volume using AMI **ami-0b5c53c5c909b8b6a**. Our AMI can be found by searching the AMI ID: **EC2 Management Console** -> **Images/AMIs** -> **Public Images** -> **Search**.
 2. Log into your EC2 instance and go to [`Libra-openwhisk/demo`](https://github.com/IntelliSys-Lab/Libra-openwhisk/tree/master/demo).
 ```
 cd Libra-openwhisk/demo
