@@ -63,6 +63,14 @@ We provide the codebase of [ten serverless applications](https://github.com/Inte
 ### Experimental Results and OpenWhisk Logs
 - Experimental results are collected as CSV files under `Libra-openwhisk/demo/logs`, including CPU usage, memory usage, resource allocation details, and invocation trajectories. Note that `Libra-openwhisk/demo/logs` is not present in the initial repo. It will only be generated after running an experiment.
 - OpenWhisk system logs can be found under `/var/tmp/wsklogs`.
+- Each run of an experiment will output some metrics on the screen, including:
+  - `Actual timesteps`: logic timestep maintained by Libra's enviroment
+  - `System timesteps`: logic timestep provided by Azure invocation trace
+  - `System runtime`: actual wall clock time since the experiment starts
+  - `Total events`: the total number of invocation events during the experiment
+  - `Total rewards`: the sum of execution time for all invocations
+  - `Timeout num`: the number of invocations that timed out
+  - `Error num`: the number of invocations returned with errors (typically due to resource contention, this could occur with default available 8 CPU cores)
 
 ### Distributed Libra
 The steps of deploying a distributed Libra are basically the same as deploying a distributed OpenWhisk cluster. For deploying a distributed Libra, please refer to the README of [Apache OpenWhisk](https://github.com/apache/openwhisk) and [Ansible](https://github.com/apache/openwhisk/tree/master/ansible). 
