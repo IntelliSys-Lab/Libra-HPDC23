@@ -78,7 +78,7 @@ The steps of deploying a distributed Libra are basically the same as deploying a
 ## Reproduce via AWS EC2 AMI
 
 ### Prerequisite
-- [AWS EC2](https://aws.amazon.com/ec2/): Instance type must be **c4.2xlarge** with at least **30 GB EBS storage under root volume**
+- [AWS EC2](https://aws.amazon.com/ec2/): Instance type should be at least the size of **c4.2xlarge** with at least **30 GB EBS storage under root volume**
 - [AWS EC2 AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html): **ami-0b5c53c5c909b8b6a**
 
 ### Run Demo
