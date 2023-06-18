@@ -19,7 +19,10 @@
 
 # Libra-openwhisk
 
-This repo contains a demo implementation of our SC 22 paper submission. Libra is built atop [Apache OpenWhisk](https://github.com/apache/openwhisk). We describe how to build and deploy Libra from scratch for this demo. We also provide a public AWS EC2 AMI for fast reproducing the demo experiment.
+This repo contains a demo implementation of our HPDC 2023 paper: [Libra: Harvesting Idle Resources Safely and Timely in Serverless Clusters](https://intellisys.haow.ca/assets/pdf/Libra_Hanfei_HPDC23.pdf). 
+> Serverless computing has been favored by users and infrastructure providers from various industries, including online services and scientific computing. Users enjoy its auto-scaling and ease-of-management, and providers own more control to optimize their service. However, existing serverless platforms still require users to pre-define resource allocations for their functions, leading to frequent misconfiguration by inexperienced users in practice. Besides, functions' varying input data further escalate the gap between their dynamic resource demands and static allocations, leaving functions either over-provisioned or under-provisioned. This paper presents Libra, a safe and timely resource harvesting framework for multi-node serverless clusters. Libra makes precise harvesting decisions to accelerate function invocations with harvested resources and jointly improve resource utilization by profiling dynamic resource demands and availability proactively. Experiments on OpenWhisk clusters with real-world workloads show that Libra reduces response latency by 39% and achieves 3X resource utilization compared to state-of-the-art solutions.
+
+Libra is built atop [Apache OpenWhisk](https://github.com/apache/openwhisk). We describe how to build and deploy Libra from scratch for this demo. We also provide a public AWS EC2 AMI for fast reproducing the demo experiment.
 
 ## Build From Scratch
 
