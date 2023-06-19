@@ -17,7 +17,7 @@
 #
 -->
 
-# Libra-openwhisk
+# Libra-HPDC23
 
 This repo contains a demo implementation of our HPDC 2023 paper, [Libra: Harvesting Idle Resources Safely and Timely in Serverless Clusters](https://intellisys.haow.ca/assets/pdf/Libra_Hanfei_HPDC23.pdf). 
 > Serverless computing has been favored by users and infrastructure providers from various industries, including online services and scientific computing. Users enjoy its auto-scaling and ease-of-management, and providers own more control to optimize their service. However, existing serverless platforms still require users to pre-define resource allocations for their functions, leading to frequent misconfiguration by inexperienced users in practice. Besides, functions' varying input data further escalate the gap between their dynamic resource demands and static allocations, leaving functions either over-provisioned or under-provisioned. This paper presents Libra, a safe and timely resource harvesting framework for multi-node serverless clusters. Libra makes precise harvesting decisions to accelerate function invocations with harvested resources and jointly improve resource utilization by profiling dynamic resource demands and availability proactively. Experiments on OpenWhisk clusters with real-world workloads show that Libra reduces response latency by 39% and achieves 3X resource utilization compared to state-of-the-art solutions.
@@ -43,12 +43,12 @@ This demo hosts all Libra's components on a single node.
 
 1. Download the github repo.
 ```
-git clone https://github.com/IntelliSys-Lab/Libra-openwhisk
+git clone https://github.com/IntelliSys-Lab/Libra-HPDC23
 ```
-2. Specify available CPU cores and memory for executing function invocations. This can be defined in [Libra-openwhisk/ansible/group_vars/all](https://github.com/IntelliSys-Lab/Libra-openwhisk/blob/master/ansible/group_vars/all) by modifying [`__userCpu`](https://github.com/IntelliSys-Lab/Libra-openwhisk/blob/master/ansible/group_vars/all#L200) and [`__userMemory`](https://github.com/IntelliSys-Lab/Libra-openwhisk/blob/master/ansible/group_vars/all#L199). Default available CPU and memory are set to 8 cores and 8 GB.
-3. Go to [`Libra-openwhisk/demo`](https://github.com/IntelliSys-Lab/Libra-openwhisk/tree/master/demo).
+2. Specify available CPU cores and memory for executing function invocations. This can be defined in [Libra-HPDC23/ansible/group_vars/all](https://github.com/IntelliSys-Lab/Libra-HPDC23/blob/master/ansible/group_vars/all) by modifying [`__userCpu`](https://github.com/IntelliSys-Lab/Libra-HPDC23/blob/master/ansible/group_vars/all#L200) and [`__userMemory`](https://github.com/IntelliSys-Lab/Libra-HPDC23/blob/master/ansible/group_vars/all#L199). Default available CPU and memory are set to 8 cores and 8 GB.
+3. Go to [`Libra-HPDC23/demo`](https://github.com/IntelliSys-Lab/Libra-HPDC23/tree/master/demo).
 ```
-cd Libra-openwhisk/demo
+cd Libra-HPDC23/demo
 ```
 4. Set up the environment. This could take quite a while due to building Docker images from scratch. The recommended shell to run `setup.sh` is Bash.
 ```
@@ -61,10 +61,10 @@ python3 run_demo.py
 
 ### Workloads
 
-We provide the codebase of [ten serverless applications](https://github.com/IntelliSys-Lab/Libra-openwhisk/tree/master/workloads) used in our evaluation. However, due to hardware limitations, we only provide a simple [demo invocation trace](https://github.com/IntelliSys-Lab/Libra-openwhisk/tree/master/demo/azurefunctions-dataset2019) for the demo experiment.
+We provide the codebase of [ten serverless applications](https://github.com/IntelliSys-Lab/Libra-HPDC23/tree/master/workloads) used in our evaluation. However, due to hardware limitations, we only provide a simple [demo invocation trace](https://github.com/IntelliSys-Lab/Libra-HPDC23/tree/master/demo/azurefunctions-dataset2019) for the demo experiment.
 
 ### Experimental Results and OpenWhisk Logs
-- Experimental results are collected as CSV files under `Libra-openwhisk/demo/logs`, including CPU usage, memory usage, resource allocation details, and invocation trajectories. Note that `Libra-openwhisk/demo/logs` is not present in the initial repo. It will only be generated after running an experiment.
+- Experimental results are collected as CSV files under `Libra-HPDC23/demo/logs`, including CPU usage, memory usage, resource allocation details, and invocation trajectories. Note that `Libra-HPDC23/demo/logs` is not present in the initial repo. It will only be generated after running an experiment.
 - OpenWhisk system logs can be found under `/var/tmp/wsklogs`.
 - Each run of experiments will output some metrics on the screen, including:
   - `Actual timesteps`: logic timestep maintained by Libra
@@ -90,9 +90,9 @@ Since this AMI has preinstalled all dependencies and built all Docker images, yo
 **Instruction**
 
 1. Launch a c4.2xlarge instance with 30 GB EBS storage under root volume using AMI **ami-0b5c53c5c909b8b6a**. Our AMI can be found by searching the AMI ID: **EC2 Management Console** -> **Images/AMIs** -> **Public Images** -> **Search**.
-2. Log into your EC2 instance and go to [`Libra-openwhisk/demo`](https://github.com/IntelliSys-Lab/Libra-openwhisk/tree/master/demo).
+2. Log into your EC2 instance and go to [`Libra-HPDC23/demo`](https://github.com/IntelliSys-Lab/Libra-HPDC23/tree/master/demo).
 ```
-cd Libra-openwhisk/demo
+cd Libra-HPDC23/demo
 ```
 3. Run Libra's demo. The demo experiment may take one or two minutes to complete.
 ```
